@@ -13,7 +13,9 @@ class ProgressView: UIView {
     var value: CGFloat = 0.0 {
         didSet {
             #if DEBUG
+            if value < 0 || value > 1 {
                 fatalError("value值只能在 0 和 1 之间")
+            }
             #endif
             setNeedsLayout()
         }
